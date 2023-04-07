@@ -6,7 +6,7 @@ import { saveDataToCache } from "../../services/browser-cache";
 import {
   deleteItemFromServer,
   saveItemOnServer,
-  addItemOnServer
+  addItemOnServer,
 } from "../../services/api";
 
 import { Loader } from "../Loader/Loader";
@@ -16,37 +16,41 @@ export const TableRow = ({ el, tableData, setTableData }) => {
   const [fetchingMode, setFetchingMode] = useState(false);
 
   useEffect(() => {
+    //ToDo: study more performant way to disable buttons
     const btnArr = [...document.querySelectorAll(".deleteBtn,.updateBtn")];
     updatingMode
       ? btnArr.forEach((btn) => (btn.disabled = true))
       : btnArr.forEach((btn) => (btn.disabled = false));
   }, [updatingMode]);
 
+  //ToDo: encapsulate request parts
   const updateHandler = (event) => {
     const inputsArr = [
       event.target.parentElement.parentElement[0],
       event.target.parentElement.parentElement[1],
-      event.target.parentElement.parentElement[2]
+      event.target.parentElement.parentElement[2],
     ];
     inputsArr.forEach((input) => (input.disabled = false));
     event.target.parentElement.parentElement.classList.add("touched");
     setUpdatingMode(true);
   };
 
+  //ToDo: encapsulate request parts
   const saveHandler = (event, formID) => {
     setFetchingMode(true);
 
     const inputsArr = [
       event.target.parentElement.parentElement[0],
       event.target.parentElement.parentElement[1],
-      event.target.parentElement.parentElement[2]
+      event.target.parentElement.parentElement[2],
     ];
     const newData = {
       name: inputsArr[0].value,
       age: inputsArr[1].value,
-      about: inputsArr[2].value
+      about: inputsArr[2].value,
     };
 
+    //ToDo: encapsulate request parts
     if (!formID) {
       return addItemOnServer(newData)
         .then((newItem) => {
@@ -67,6 +71,7 @@ export const TableRow = ({ el, tableData, setTableData }) => {
         });
     }
 
+    //ToDo: encapsulate request parts
     saveItemOnServer(formID, newData)
       .then(() => {
         Object.assign(
@@ -81,6 +86,7 @@ export const TableRow = ({ el, tableData, setTableData }) => {
       .finally(() => setFetchingMode(false));
   };
 
+  //ToDo: encapsulate request parts
   const deleteHandler = (rowID) => {
     setFetchingMode(true);
     deleteItemFromServer(rowID)
@@ -96,6 +102,8 @@ export const TableRow = ({ el, tableData, setTableData }) => {
 
   return (
     <>
+      {/*ToDo: encapsulate components*/}
+
       <RowBox key={el.id}>
         <RowInput
           key={el.name}
@@ -155,7 +163,6 @@ export const TableRow = ({ el, tableData, setTableData }) => {
           </RowButton>
         </ControlsBox>
       </RowBox>
-
     </>
   );
 };

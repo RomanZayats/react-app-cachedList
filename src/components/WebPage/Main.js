@@ -39,7 +39,6 @@ export const Main = () => {
     scrollToBottom();
   };
 
-
   if (!appData.length) return <Loader />;
 
   return (
@@ -53,7 +52,6 @@ export const Main = () => {
         />
       ))}
 
-
       <CreateItemBtn
         className="createBtn"
         type="button"
@@ -62,7 +60,6 @@ export const Main = () => {
       >
         +
       </CreateItemBtn>
-
     </ContentBox>
   );
 };
@@ -94,4 +91,3 @@ const CreateItemBtn = styled.button`
     box-shadow: 2px 2px 2px 1px lightslategrey;
   }
 `;
-

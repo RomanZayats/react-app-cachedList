@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+//ToDo: upgrade loader to spinner
 export const Loader = () => (
   <LoaderBox>
     <LoaderText>Loading...</LoaderText>
