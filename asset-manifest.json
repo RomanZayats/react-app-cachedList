@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/react-app-cachedList/static/css/main.6e9d2441.css",
+    "main.js": "/react-app-cachedList/static/js/main.27ff339c.js",
+    "index.html": "/react-app-cachedList/index.html",
+    "main.6e9d2441.css.map": "/react-app-cachedList/static/css/main.6e9d2441.css.map",
+    "main.27ff339c.js.map": "/react-app-cachedList/static/js/main.27ff339c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6e9d2441.css",
+    "static/js/main.27ff339c.js"
+  ]
+}
